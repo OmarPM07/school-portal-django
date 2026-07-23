@@ -43,7 +43,7 @@ Portal institucional para gestión escolar desarrollado con Python, Django y Pos
    pip install -r requirements.txt
    ```
 
-4. Configura las variables de entorno (crea un archivo `.env` en la raíz):
+4. Configura las variables de entorno (crea un archivo `.env` en la raíz),    Copia .env.example a .env y ajusta los valores según tu entorno local.:
    ```
    SECRET_KEY=tu_clave_secreta
    DEBUG=True
