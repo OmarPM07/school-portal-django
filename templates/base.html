@@ -31,7 +31,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">
+        <a class="navbar-brand" href="{% url 'core:home' %}">
             <img src="{% static 'img/logo.png' %}" alt="CBTa 108">
         </a>
 
@@ -41,32 +41,32 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4 {% if request.path == '/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Inicio</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'core:home' %}">Inicio</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/historia/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'historia' %}">Historia</a>
+              <a class="nav-link text-uppercase text-expanded" href="#">Historia</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/mision/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'mision' %}">Misión</a>
+              <a class="nav-link text-uppercase text-expanded" href="#">Misión</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.path == '/vision/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'vision' %}">Visión</a>
+              <a class="nav-link text-uppercase text-expanded" href="#">Visión</a>
             </li>
             
             <li class="nav-item px-lg-4 {% if 'alumnos' in request.path %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'alumnos:modulo_alumnos' %}">Alumnos</a>
+              <a class="nav-link text-uppercase text-expanded" href="#">Alumnos</a>
             </li>
 
             <li class="nav-item px-lg-4 {% if 'carreras' in request.path %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'carreras:lista_carreras' %}">Oferta educativa</a>
+              <a class="nav-link text-uppercase text-expanded" href="#">Oferta educativa</a>
             </li>
             
             <li class="nav-item px-lg-4 {% if 'bitacora' in request.path or 'blog' in request.path %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'blog:post_list' %}">Blog</a>
+              <a class="nav-link text-uppercase text-expanded" href="#">Blog</a>
             </li>
             
             <li class="nav-item px-lg-4 {% if request.path == '/contacto/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'contacto' %}">Contacto</a>
+              <a class="nav-link text-uppercase text-expanded" href="#">Contacto</a>
             </li>
             <li class="nav-item px-lg-4 {% if 'admin' in request.path %}active{% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="{% url 'admin:index' %}" target="_blank">Log-in</a>
