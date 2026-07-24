@@ -1,4 +1,12 @@
+/* Color palette */
 
+:root {
+  --color-dorado: #D4A373;
+  --color-dorado-oscuro: #B08968;
+  --color-verde-principal: #0B6E4F;
+  --color-verde-secundario: #2E8B57;
+  --color-verde-nav: rgba(11, 110, 79, 0.95);
+}
 
 body {
   font-family: 'Lora';
@@ -29,15 +37,26 @@ p {
   color: rgba(255, 255, 255, 0.3);
 }
 
-   ENCABEZADO
+/* ENCABEZADO */
 
-
-.site-heading {
+.site-heading-wrapper {
   margin-top: 5rem;
   margin-bottom: 5rem;
+  padding-left: 3rem;
+}
+
+.site-heading-logo {
+  height: 200px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.site-heading {
   text-transform: uppercase;
   line-height: 1;
   font-family: 'Raleway';
+  text-align: left;
+  margin: 0;
 }
 
 .site-heading .site-heading-upper {
@@ -54,8 +73,7 @@ p {
   color: #0B6E4F;
 }
 
-
-   NAVBAR
+/* NAVBAR */
 
 #mainNav {
   background-color: rgba(11, 110, 79, 0.95);
@@ -66,7 +84,7 @@ p {
 }
 
 .navbar-brand img {
-    height: 100px !important;
+    height: 55px !important;
     width: auto;
     position: static;
 }
@@ -171,9 +189,7 @@ p {
   border-color: #B08968;
 }
 
-/* 
-   INTRO
-*/
+/* INTRO */
 
 .intro {
   position: relative;
@@ -207,7 +223,7 @@ p {
   }
 }
 
-/* CTA*/
+/* CTA */
 
 .cta {
   padding-top: 5rem;
@@ -241,7 +257,7 @@ p {
   background-color: rgba(255,255,255,0.95);
 }
 
-/* ABOUT*/
+/* ABOUT */
 
 @media (min-width: 992px) {
 
@@ -257,7 +273,7 @@ p {
   }
 }
 
-/* PRODUCTOS*/
+/* PRODUCTOS */
 
 @media (min-width: 992px) {
 
@@ -281,7 +297,7 @@ p {
   }
 }
 
-/*HORARIOS*/
+/* HORARIOS */
 
 .list-hours {
   font-size: 0.9rem;
@@ -306,7 +322,7 @@ p {
   }
 }
 
-/* FOOTER*/
+/* FOOTER */
 
 .footer {
   background-color: rgba(11,110,79,0.95);
@@ -316,7 +332,7 @@ p {
   font-size: 1.2rem;
 }
 
-/* UTILIDADES*/
+/* UTILIDADES */
 
 .text-primary {
   color: #D4A373 !important;
