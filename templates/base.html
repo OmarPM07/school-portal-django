@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>{% block title %}{% endblock title %} | CBTA 108</title>
+
+    {% load static %}
+
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    
+    <link href="{% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    
+  </head>
+
+  <body>
+
+    <h1 class="site-heading text-center text-white d-none d-lg-block">
+      <span class="site-heading-upper text-primary mb-3">Formando futuro con ciencia y oficio</span>
+      <span class="site-heading-lower">Centro de Bachillerato Tecnologico Agropecuario Num. 108</span>
+    </h1>
+
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{% static 'img/logo.png' %}" alt="CBTa 108">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-lg-4 {% if request.path == '/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'home' %}">Inicio</a>
+            </li>
+            <li class="nav-item px-lg-4 {% if request.path == '/historia/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'historia' %}">Historia</a>
+            </li>
+            <li class="nav-item px-lg-4 {% if request.path == '/mision/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'mision' %}">Misión</a>
+            </li>
+            <li class="nav-item px-lg-4 {% if request.path == '/vision/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'vision' %}">Visión</a>
+            </li>
+            
+            <li class="nav-item px-lg-4 {% if 'alumnos' in request.path %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'alumnos:modulo_alumnos' %}">Alumnos</a>
+            </li>
+
+            <li class="nav-item px-lg-4 {% if 'carreras' in request.path %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'carreras:lista_carreras' %}">Oferta educativa</a>
+            </li>
+            
+            <li class="nav-item px-lg-4 {% if 'bitacora' in request.path or 'blog' in request.path %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'blog:post_list' %}">Blog</a>
+            </li>
+            
+            <li class="nav-item px-lg-4 {% if request.path == '/contacto/' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'contacto' %}">Contacto</a>
+            </li>
+            <li class="nav-item px-lg-4 {% if 'admin' in request.path %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'admin:index' %}" target="_blank">Log-in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock content %}
+
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+          <a href="https://dgetaycm.sep.gob.mx/" class="link" target="_blank">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-university fa-stack-1x fa-inverse"></i>
+            </span>
+            </a>
+            <a href="https://www.gob.mx/becasbenitojuarez/articulos/beca-universal-de-educacion-media-superior-benito-juarez" class="link" target="_blank">
+  <span class="fa-stack fa-lg">
+    <i class="fa fa-circle fa-stack-2x"></i>
+    <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+  </span>
+</a>
+
+            </span>
+          </a>
+        </p>
+        <p class="m-0 mbt">
+          <a href="#" class="link">Política de privacidad</a> ·
+          <a href="#" class="link">Aviso legal</a> ·
+          <a href="#" class="link">Cookies</a>
+        </p>
+        <p class="m-0 mbt1">&copy; Centro de Bachillerato Tecnologico Agropecuario Num. 108 </p>
+      </div>
+    </footer>
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+  </body>
+
+</html>

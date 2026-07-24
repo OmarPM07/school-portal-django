@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% block content %}
+
+<!-- Cabecera -->
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="intro">
+      <img class="intro-img img-fluid mb-1 mb-lg-0 rounded" src="{% static 'web/img/intro.png' %}" alt="">
+      <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+        <h2 class="section-heading mb-4">
+          <span class="section-heading-upper">FORMANDO PROFESIONALES PARA EL FUTURO.</span>
+          <span class="section-heading-lower">Educación de Calidad</span>
+        </h2>
+        <p class="mb-3">En el CBTa No. 108 ofrecemos una educación de calidad que integra la formación académica con las carreras técnicas de Ofimática, Agricultura, Administración y Agropecuario, desarrollando competencias para la vida, el trabajo y la educación superior.
+        </p>
+        <div class="intro-button mx-auto">
+          <a class="btn btn-primary btn-xl" target="_blank" href="https://www.google.com/maps/place/Cbta+108/@21.6938276,-105.3943689,17z/data=!3m1!4b1!4m6!3m5!1s0x8420a8ab45555555:0x6f5dfcbf6e64c26f!8m2!3d21.6938276!4d-105.391794!16s%2Fg%2F1tfbcgqd?entry=ttu&g_ep=EgoyMDI2MDUyNy4wIKXMDSoASAFQAw%3D%3D">Como llegar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mensaje -->
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-upper">Compromiso total</span>
+            <span class="section-heading-lower">Garantizado</span>
+          </h2>
+          <p class="mb-0">Formamos jóvenes capaces, responsables y comprometidos con su comunidad, preparados para continuar su educación o incorporarse al sector productivo con bases sólidas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
