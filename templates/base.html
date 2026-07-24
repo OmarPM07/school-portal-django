@@ -26,13 +26,21 @@
         <span class="site-heading-lower">Centro de Bachillerato Tecnológico Agropecuario No. 108</span>
       </h1>
     </div>
+
+    <div class="site-heading-wrapper-mobile d-flex d-lg-none align-items-center text-center flex-column">
+      <img src="{% static 'img/logo.png' %}" alt="CBTA 108" class="site-heading-logo-mobile mb-2">
+      <h1 class="site-heading-mobile text-white mb-0">
+        <span class="site-heading-upper-mobile text-primary">Formando futuro con ciencia y oficio</span>
+        <span class="site-heading-lower-mobile">CBTA 108</span>
+      </h1>
+    </div>
     
     <!--NavBar Section-->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'core:home' %}">Inicio</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'core:home' %}">CBTA 108</a>
             </li>
             <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'historia' %}active{% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="#">Historia</a>

@@ -73,6 +73,42 @@ p {
   color: #0B6E4F;
 }
 
+/* ENCABEZADO MÓVIL */
+
+.site-heading-wrapper-mobile {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.site-heading-logo-mobile {
+  height: 90px;
+  width: auto;
+}
+
+.site-heading-mobile {
+  text-transform: uppercase;
+  line-height: 1.2;
+  font-family: 'Raleway';
+}
+
+.site-heading-upper-mobile {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.site-heading-lower-mobile {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0B6E4F;
+  background-color: rgba(255,255,255,0.85);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+}
+
 /* NAVBAR */
 
 #mainNav {
