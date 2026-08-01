@@ -40,17 +40,20 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'core:home' %}">CBTA 108</a>
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'core:home' %}">Inicio</a>
             </li>
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'historia' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="#">Historia</a>
+            
+            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'pagina_institucional' and request.resolver_match.kwargs.slug == 'historia' %}active{% endif %}">
+              <a class="nav-link text-uppercase text-expanded" href="{% url 'core:pagina_institucional' 'historia' %}">Historia</a>
             </li>
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == '/mision/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="#">Misión</a>
+            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'pagina_institucional' and request.resolver_match.kwargs.slug == 'mision' %}active{% endif %}">
+                <a class="nav-link text-uppercase text-expanded" href="{% url 'core:pagina_institucional' 'mision' %}">Misión</a>
             </li>
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == '/vision/' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="#">Visión</a>
+            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'pagina_institucional' and request.resolver_match.kwargs.slug == 'vision' %}active{% endif %}">
+                <a class="nav-link text-uppercase text-expanded" href="{% url 'core:pagina_institucional' 'vision' %}">Visión</a>
             </li>
+          
+
             <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'alumnos' %}active{% endif %}">
               <a class="nav-link text-uppercase text-expanded" href="#">Alumnos</a>
             </li>

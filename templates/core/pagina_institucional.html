@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}{{ pagina.titulo }}{% endblock title %}
+
+
+{% block content %}
+    <section class="page-section">
+        <div class="container bg-faded p-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="{{ pagina.imagen.url }}" alt="{{ pagina.titulo }}" class="img-fluid rounded">
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <span class="section-heading-lower">{{ pagina.titulo }}</span>
+                    </div>
+                    <div class="section-content mt-3">
+                        {{ pagina.contenido|linebreaks }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+    
+    
