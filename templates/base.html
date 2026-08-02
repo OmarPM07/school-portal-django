@@ -38,40 +38,50 @@
     <!--NavBar Section-->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'core:home' %}">Inicio</a>
-            </li>
-            
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'pagina_institucional' and request.resolver_match.kwargs.slug == 'historia' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'core:pagina_institucional' 'historia' %}">Historia</a>
-            </li>
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'pagina_institucional' and request.resolver_match.kwargs.slug == 'mision' %}active{% endif %}">
-                <a class="nav-link text-uppercase text-expanded" href="{% url 'core:pagina_institucional' 'mision' %}">Misión</a>
-            </li>
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'pagina_institucional' and request.resolver_match.kwargs.slug == 'vision' %}active{% endif %}">
-                <a class="nav-link text-uppercase text-expanded" href="{% url 'core:pagina_institucional' 'vision' %}">Visión</a>
-            </li>
-          
+          <ul class="navbar-nav mx-auto align-items-lg-center">
 
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'alumnos' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="#">Alumnos</a>
-            </li>
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'carreras' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="#">Oferta educativa</a>
-            </li>
-            
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'blog' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="#">Blog</a>
-            </li>
-            
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'contacto' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="#">Contacto</a>
-            </li>
-            <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'admin' %}active{% endif %}">
-              <a class="nav-link text-uppercase text-expanded" href="{% url 'admin:index' %}" target="_blank">Log-in</a>
-            </li>
-          </ul>
+    <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+        <a class="nav-link text-uppercase text-expanded" href="{% url 'core:home' %}">Inicio</a>
+    </li>
+
+    <li class="nav-item dropdown px-lg-4">
+        <a class="nav-link dropdown-toggle text-uppercase text-expanded" href="#" id="conocenosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Conócenos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="conocenosDropdown">
+            <a class="dropdown-item" href="{% url 'core:pagina_institucional' 'historia' %}">Historia</a>
+            <a class="dropdown-item" href="{% url 'core:pagina_institucional' 'mision' %}">Misión</a>
+            <a class="dropdown-item" href="{% url 'core:pagina_institucional' 'vision' %}">Visión</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Contáctanos</a>
+        </div>
+    </li>
+
+    <li class="nav-item px-lg-4 {% if 'alumnos' in request.path %}active{% endif %}">
+        <a class="nav-link text-uppercase text-expanded" href="#">Alumnos</a>
+    </li>
+
+    <li class="nav-item px-lg-4 {% if 'maestros' in request.path %}active{% endif %}">
+        <a class="nav-link text-uppercase text-expanded" href="#">Maestros</a>
+    </li>
+
+    <li class="nav-item px-lg-4 {% if 'carreras' in request.path %}active{% endif %}">
+        <a class="nav-link text-uppercase text-expanded" href="#">Oferta educativa</a>
+    </li>
+
+    <li class="nav-item px-lg-4 {% if 'admision' in request.path %}active{% endif %}">
+        <a class="nav-link text-uppercase text-expanded" href="#">Admisión</a>
+    </li>
+
+    <li class="nav-item px-lg-4 {% if 'avisos' in request.path or 'blog' in request.path %}active{% endif %}">
+        <a class="nav-link text-uppercase text-expanded" href="#">Avisos</a>
+    </li>
+
+    <li class="nav-item px-lg-4">
+        <a class="btn btn-primary btn-sm text-uppercase font-weight-bold login-btn" href="{% url 'admin:index' %}" target="_blank">Log-in</a>
+    </li>
+
+</ul>
         </div>
       </div>
     </nav>

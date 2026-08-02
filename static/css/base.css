@@ -160,6 +160,44 @@ p {
   }
 }
 
+/* Dropdown "Conócenos" - abrir con hover solo en escritorio */
+@media (min-width: 992px) {
+  .navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+
+  .navbar-nav .dropdown-toggle::after {
+    vertical-align: 0.15em;
+  }
+}
+
+.dropdown-menu {
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  background-color: rgba(11, 110, 79, 0.98);
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  color: rgba(255,255,255,0.90);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.5rem;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: rgba(255,255,255,0.1);
+  color: #D4A373;
+}
+
+.dropdown-divider {
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
 /* SECCIONES*/
 
 .page-section {
@@ -223,6 +261,25 @@ p {
 .btn-primary:active {
   background-color: #B08968;
   border-color: #B08968;
+}
+
+.login-btn {
+  border-radius: 20px;
+  padding: 0.4rem 1.3rem !important;
+  color: #0B6E4F !important;
+  box-shadow: none;
+}
+
+.login-btn:hover {
+  background-color: #B08968;
+  border-color: #B08968;
+  color: #ffffff !important;
+}
+
+@media (min-width: 992px) {
+  .login-btn {
+    margin-left: 0.5rem;
+  }
 }
 
 /* INTRO */
