@@ -1,4 +1,5 @@
 from django.db import models
+from django_ckeditor_5.fields import CKEditor5Field
 
 # Create your models here.
 
@@ -9,7 +10,7 @@ class PaginaInstitucional(models.Model):
         help_text="Identificador único usado en la URL (ej: historia, mision, vision)"
     )
     imagen = models.ImageField(upload_to='institucional/')
-    contenido = models.TextField()
+    contenido = CKEditor5Field('Text', config_name='extends')
     orden = models.PositiveIntegerField(
         default=0,
         help_text="Orden de aparición en el menú (menor número aparece primero)"
