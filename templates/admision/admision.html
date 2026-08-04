@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Admisión{% endblock title %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+
+        <div class="section-heading text-center mb-4">
+            <span class="section-heading-upper">Ciclo escolar {{ convocatoria.ciclo_escolar }}</span>
+            <span class="section-heading-lower">Proceso de Admisión</span>
+        </div>
+
+        <div class="section-content mb-5">
+            {{ convocatoria.contenido|safe }}
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="cta-inner text-center h-100">
+                    <h5>Registro</h5>
+                    <p class="mb-0">{{ convocatoria.fecha_inicio_registro|date:"d/m/Y" }} al {{ convocatoria.fecha_fin_registro|date:"d/m/Y" }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="cta-inner text-center h-100">
+                    <h5>Examen diagnóstico</h5>
+                    <p class="mb-0">{{ convocatoria.fecha_examen_diagnostico|date:"d/m/Y" }}</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="cta-inner text-center h-100">
+                    <h5>Resultados</h5>
+                    <p class="mb-0">{{ convocatoria.fecha_publicacion_resultados|date:"d/m/Y" }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mb-5">
+            <p><strong>Inicio del curso propedéutico:</strong> {{ convocatoria.fecha_inicio_propedeutico|date:"d/m/Y" }}</p>
+        </div>
+
+        <div class="text-center mb-5">
+            <a href="{{ convocatoria.convocatoria_pdf.url }}" target="_blank" class="btn btn-verde btn-xl mr-2 mb-2">Descargar convocatoria</a>
+            <a href="{{ convocatoria.formato_solicitud_pdf.url }}" target="_blank" class="btn btn-verde btn-xl mb-2">Descargar formato de solicitud</a>
+        </div>
+
+        {% if convocatoria.fichas_inscripcion.all %}
+            <h4 class="text-center mb-4">Fichas de inscripción por semestre</h4>
+            <div class="row justify-content-center">
+                {% for ficha in convocatoria.fichas_inscripcion.all %}
+                <div class="col-md-4 mb-3 text-center">
+                    <a href="{{ ficha.archivo.url }}" target="_blank" class="btn btn-verde btn-xl">
+                        {{ ficha.semestre }}
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</section>
+{% endblock content %}

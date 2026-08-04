@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_ckeditor_5',
+    'admision.apps.AdmisionConfig',
     'core.apps.CoreConfig',
     'carreras.apps.CarrerasConfig',
 ]

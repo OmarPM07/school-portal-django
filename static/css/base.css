@@ -282,6 +282,20 @@ p {
   }
 }
 
+.btn-verde {
+  background-color: #0B6E4F;
+  border-color: #0B6E4F;
+  color: #ffffff;
+}
+
+.btn-verde:hover,
+.btn-verde:focus,
+.btn-verde:active {
+  background-color: #094f39;
+  border-color: #094f39;
+  color: #ffffff;
+}
+
 /* INTRO */
 
 .intro {

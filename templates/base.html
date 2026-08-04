@@ -69,10 +69,10 @@
       <a class="nav-link text-uppercase text-expanded" href="{% url 'carreras:lista' %}">Oferta educativa</a>
     </li>
 
-    <li class="nav-item px-lg-4 {% if 'admision' in request.path %}active{% endif %}">
-        <a class="nav-link text-uppercase text-expanded" href="#">Admisión</a>
+    <li class="nav-item px-lg-4 {% if request.resolver_match.url_name == 'admision' %}active{% endif %}">
+      <a class="nav-link text-uppercase text-expanded" href="{% url 'admision:admision' %}">Admisión</a>
     </li>
-
+    
     <li class="nav-item px-lg-4 {% if 'avisos' in request.path or 'blog' in request.path %}active{% endif %}">
         <a class="nav-link text-uppercase text-expanded" href="#">Avisos</a>
     </li>
