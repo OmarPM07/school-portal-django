@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ carrera.nombre }}{% endblock title %}
+
+{% block content %}
+    <section class="page-section">
+        <div class="container bg-faded p-5">
+            <div class="section-heading mb-4">
+                <span class="section-heading-lower">{{ carrera.nombre }}</span>
+            </div>
+
+            <img src="{{ carrera.imagen_principal.url }}" alt="{{ carrera.nombre }}" class="img-fluid rounded mb-4">
+
+            <div class="section-content mb-5">
+                {{ carrera.descripcion|safe }}
+            </div>
+
+            {% if carrera.imagenes.all %}
+            <h4 class="mb-3">Galería de actividades</h4>
+            <div class="row">
+                {% for imagen in carrera.imagenes.all %}
+                <div class="col-md-4 mb-4">
+                    <img src="{{ imagen.imagen.url }}" alt="{{ imagen.descripcion|default:carrera.nombre }}" class="img-fluid rounded">
+                    {% if imagen.descripcion %}
+                    <p class="text-muted small mt-1">{{ imagen.descripcion }}</p>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <a href="{% url 'carreras:lista' %}" class="btn btn-primary btn-xl mt-3">← Volver a Oferta Educativa</a>
+        </div>
+    </section>
+{% endblock content %}

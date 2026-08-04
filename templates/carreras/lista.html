@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Oferta Educativa{% endblock title %}
+
+
+{% block content %}
+    <section class="page-section">
+        <div class="container bg-faded p-5">
+            <div class="section-heading text-center mb-5">
+                <span class="section-heading-lower">Oferta Educativa</span>
+            </div>
+            <div class="row">
+                {% for carrera in carreras %}
+                <div class="col-lg-6 mb-4">
+                    <div class="card h-100">
+                        <img src="{{ carrera.imagen_principal.url }}" class="card-img-top" alt="{{ carrera.nombre }}">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ carrera.nombre }}</h3>
+                            <p class="card-text">{{ carrera.resumen }}</p>
+                            <a href="{% url 'carreras:detalle' carrera.slug %}" class="btn btn-primary btn-xl">Conoce más</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+    
+    
