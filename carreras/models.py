@@ -17,7 +17,9 @@ class Carrera(models.Model):
         max_length=250,
         help_text="Descripción corta para la tarjeta en la lista de oferta educativa"
     )
-    descripcion = CKEditor5Field('Text', config_name='extends')
+    descripcion = CKEditor5Field('Descripción Carrera', config_name='extends')
+    perfil_egreso = CKEditor5Field('Perfil Egreso', config_name='extends', blank=True, null=True)
+    campo_laboral = CKEditor5Field('Campo Laboral', config_name='extends', blank=True, null=True)
     orden = models.PositiveIntegerField(default=0)
     activo = models.BooleanField(default=True)
     creado = models.DateTimeField(auto_now_add=True)
