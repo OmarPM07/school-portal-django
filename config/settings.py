@@ -137,6 +137,15 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']       # donde Django busca en desarrollo
 STATIC_ROOT = BASE_DIR / 'staticfiles'         # donde se recopilan para producción (collectstatic)
 
+# Configuración de un servico SMTP
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+CONTACT_EMAIL_RECEIVER = env('CONTACT_EMAIL_RECEIVER')
+
 # Archivos de media (subidos por usuarios)
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'

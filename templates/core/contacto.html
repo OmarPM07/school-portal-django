@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contacto{% endblock title %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+        <div class="section-heading text-center mb-4">
+            <span class="section-heading-lower">Contáctanos</span>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="post" novalidate>
+            {% csrf_token %}
+
+            <div class="d-none">
+                {{ form.telefono_confirmacion }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.nombre.id_for_label }}">Nombre</label>
+                {{ form.nombre }}
+                {{ form.nombre.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Correo electrónico</label>
+                {{ form.email }}
+                {{ form.email.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.asunto.id_for_label }}">Asunto</label>
+                {{ form.asunto }}
+                {{ form.asunto.errors }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.mensaje.id_for_label }}">Mensaje</label>
+                {{ form.mensaje }}
+                {{ form.mensaje.errors }}
+            </div>
+
+            <button type="submit" class="btn btn-verde btn-xl">Enviar mensaje</button>
+        </form>
+    </div>
+</section>
+{% endblock content %}
