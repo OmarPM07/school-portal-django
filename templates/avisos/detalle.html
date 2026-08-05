@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ aviso.titulo }}{% endblock title %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+        <div class="section-heading mb-4">
+            <span class="section-heading-lower">{{ aviso.titulo }}</span>
+            <span class="section-heading-under">Publicado el {{ aviso.publicado|date:"d/m/Y" }}</span>
+        </div>
+
+        <img src="{{ aviso.imagen.url }}" alt="{{ aviso.titulo }}" class="img-fluid rounded mb-4">
+
+        <div class="section-content mb-4">
+            {{ aviso.contenido|safe }}
+        </div>
+
+        {% if aviso.tags.all %}
+        <div class="mb-4">
+            {% for tag_item in aviso.tags.all %}
+            <a href="{% url 'avisos:lista_por_tag' tag_item.slug %}" class="badge badge-secondary mr-1">{{ tag_item.name }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <a href="{% url 'avisos:lista' %}" class="btn btn-verde btn-xl">← Volver a Avisos</a>
+    </div>
+</section>
+{% endblock content %}

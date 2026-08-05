@@ -42,4 +42,28 @@
     </div>
   </div>
 </section>
+
+<!-- Sección de aviso destacado -->
+{% if aviso_destacado %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+        <div class="section-heading text-center mb-4">
+            <span class="section-heading-upper">Último aviso</span>
+            <span class="section-heading-lower">{{ aviso_destacado.titulo }}</span>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{{ aviso_destacado.imagen.url }}" alt="{{ aviso_destacado.titulo }}" class="img-fluid rounded">
+            </div>
+            <div class="col-lg-6">
+                <p class="text-muted small">{{ aviso_destacado.publicado|date:"d/m/Y" }}</p>
+                <p>{{ aviso_destacado.resumen }}</p>
+                <a href="{% url 'avisos:detalle' aviso_destacado.slug %}" class="btn btn-verde btn-xl">Ver aviso completo</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
 {% endblock content %}

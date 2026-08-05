@@ -18,39 +18,47 @@
             {% endfor %}
         {% endif %}
 
-        <form method="post" novalidate>
-            {% csrf_token %}
-
-            <div class="d-none">
-                {{ form.telefono_confirmacion }}
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="{% static 'img/contacto.png' %}" alt="Contáctanos - CBTA 108" class="img-fluid rounded">
             </div>
 
-            <div class="form-group">
-                <label for="{{ form.nombre.id_for_label }}">Nombre</label>
-                {{ form.nombre }}
-                {{ form.nombre.errors }}
-            </div>
+            <div class="col-lg-6">
+                <form method="post" novalidate>
+                    {% csrf_token %}
 
-            <div class="form-group">
-                <label for="{{ form.email.id_for_label }}">Correo electrónico</label>
-                {{ form.email }}
-                {{ form.email.errors }}
-            </div>
+                    <div class="d-none">
+                        {{ form.telefono_confirmacion }}
+                    </div>
 
-            <div class="form-group">
-                <label for="{{ form.asunto.id_for_label }}">Asunto</label>
-                {{ form.asunto }}
-                {{ form.asunto.errors }}
-            </div>
+                    <div class="form-group">
+                        <label for="{{ form.nombre.id_for_label }}">Nombre</label>
+                        {{ form.nombre }}
+                        {{ form.nombre.errors }}
+                    </div>
 
-            <div class="form-group">
-                <label for="{{ form.mensaje.id_for_label }}">Mensaje</label>
-                {{ form.mensaje }}
-                {{ form.mensaje.errors }}
-            </div>
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">Correo electrónico</label>
+                        {{ form.email }}
+                        {{ form.email.errors }}
+                    </div>
 
-            <button type="submit" class="btn btn-verde btn-xl">Enviar mensaje</button>
-        </form>
+                    <div class="form-group">
+                        <label for="{{ form.asunto.id_for_label }}">Asunto</label>
+                        {{ form.asunto }}
+                        {{ form.asunto.errors }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="{{ form.mensaje.id_for_label }}">Mensaje</label>
+                        {{ form.mensaje }}
+                        {{ form.mensaje.errors }}
+                    </div>
+
+                    <button type="submit" class="btn btn-verde btn-xl">Enviar mensaje</button>
+                </form>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock content %}

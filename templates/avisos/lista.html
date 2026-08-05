@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Avisos{% endblock title %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+        <div class="section-heading text-center mb-5">
+            <span class="section-heading-lower">Avisos</span>
+            {% if tag %}
+                <span class="section-heading-under">Filtrado por: {{ tag.name }}</span>
+            {% endif %}
+        </div>
+
+        <div class="row">
+            {% for aviso in avisos %}
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{ aviso.imagen.url }}" class="card-img-top" alt="{{ aviso.titulo }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ aviso.titulo }}</h5>
+                        <p class="text-muted small">{{ aviso.publicado|date:"d/m/Y" }}</p>
+                        <p class="card-text">{{ aviso.resumen }}</p>
+                        <a href="{% url 'avisos:detalle' aviso.slug %}" class="btn btn-verde btn-xl">Leer más</a>
+                    </div>
+                    {% if aviso.tags.all %}
+                    <div class="card-footer bg-transparent">
+                        {% for tag_item in aviso.tags.all %}
+                        <a href="{% url 'avisos:lista_por_tag' tag_item.slug %}" class="badge badge-secondary mr-1">{{ tag_item.name }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">No hay avisos disponibles por el momento.</p>
+            {% endfor %}
+        </div>
+
+        {% if avisos.has_other_pages %}
+        <nav aria-label="Paginación de avisos" class="mt-4">
+            <ul class="pagination justify-content-center">
+                {% if avisos.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ avisos.previous_page_number }}">Anterior</a>
+                </li>
+                {% endif %}
+
+                <li class="page-item active">
+                    <span class="page-link">{{ avisos.number }} de {{ avisos.paginator.num_pages }}</span>
+                </li>
+
+                {% if avisos.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ avisos.next_page_number }}">Siguiente</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+</section>
+{% endblock content %}

@@ -73,8 +73,8 @@
       <a class="nav-link text-uppercase text-expanded" href="{% url 'admision:admision' %}">Admisión</a>
     </li>
     
-    <li class="nav-item px-lg-4 {% if 'avisos' in request.path or 'blog' in request.path %}active{% endif %}">
-        <a class="nav-link text-uppercase text-expanded" href="#">Avisos</a>
+    <li class="nav-item px-lg-4 {% if 'avisos' in request.path %}active{% endif %}">
+      <a class="nav-link text-uppercase text-expanded" href="{% url 'avisos:lista' %}">Avisos</a>
     </li>
 
     <li class="nav-item px-lg-4">

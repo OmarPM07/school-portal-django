@@ -4,10 +4,12 @@ from django.conf import settings
 from django.contrib import messages
 from .models import PaginaInstitucional
 from .forms import ContactoForm
-# Create your views here.
+from avisos.models import Aviso
+
 
 def home(request):
-    return render(request, 'core/home.html')
+    aviso_destacado = Aviso.objects.filter(activo=True).first()
+    return render(request, 'core/home.html', {'aviso_destacado': aviso_destacado})
 
 def pagina_institucional(request, slug):
     pagina = get_object_or_404(PaginaInstitucional, slug=slug, activo=True)
