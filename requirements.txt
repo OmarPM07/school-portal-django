@@ -7,7 +7,9 @@ django-ckeditor-5==0.2.20
 django-cloudinary-storage==0.3.0
 django-environ==0.14.0
 django-taggit==6.1.0
+gunicorn==26.0.0
 idna==3.18
+packaging==26.3
 pillow==12.3.0
 psycopg2-binary==2.9.12
 requests==2.34.2
