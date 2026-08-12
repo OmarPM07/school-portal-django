@@ -157,7 +157,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']       # donde Django busca en desarrollo
 STATIC_ROOT = BASE_DIR / 'staticfiles'         # donde se recopilan para producción (collectstatic)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Configuración de un servico SMTP
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -248,11 +248,20 @@ if not DEBUG:
     SECURE_HSTS_PRELOAD = True
     
 # Almacenamiento de archivos: Cloudinary en producción, local en desarrollo
+STORAGES = {
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+
 if not DEBUG:
     CLOUDINARY_STORAGE = {
         'CLOUD_NAME': env('CLOUDINARY_CLOUD_NAME'),
         'API_KEY': env('CLOUDINARY_API_KEY'),
         'API_SECRET': env('CLOUDINARY_API_SECRET'),
     }
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STORAGES['default']['BACKEND'] = 'cloudinary_storage.storage.MediaCloudinaryStorage'
     CKEDITOR_5_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
