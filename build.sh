@@ -13,3 +13,5 @@ echo "=== FIN DIAGNOSTICO ==="
 python manage.py collectstatic --no-input
 
 python manage.py migrate
+
+python manage.py crear_superusuario
