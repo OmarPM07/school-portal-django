@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Maestros{% endblock title %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+        <div class="section-heading text-center mb-5">
+            <span class="section-heading-lower">Nuestros Maestros</span>
+        </div>
+
+        <div class="row">
+            {% for maestro in maestros %}
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100 text-center">
+                    <img src="{{ maestro.foto.url }}" class="card-img-top" alt="{{ maestro.nombre }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ maestro.nombre }}</h5>
+                        <p class="text-muted">{{ maestro.especialidad }}</p>
+                        {% if maestro.carrera %}
+                        <p class="small">{{ maestro.carrera.nombre }}</p>
+                        {% endif %}
+                        {% if maestro.semblanza %}
+                        <div class="section-content text-left">
+                            {{ maestro.semblanza|safe|truncatewords_html:25 }}
+                        </div>
+                        {% endif %}
+                        {% if maestro.correo %}
+                        <p class="small mt-2">
+                            <a href="mailto:{{ maestro.correo }}">{{ maestro.correo }}</a>
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">Aún no hay maestros registrados.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}

@@ -62,7 +62,7 @@
     </li>
 
     <li class="nav-item px-lg-4 {% if 'maestros' in request.path %}active{% endif %}">
-        <a class="nav-link text-uppercase text-expanded" href="#">Maestros</a>
+      <a class="nav-link text-uppercase text-expanded" href="{% url 'maestros:lista' %}">Maestros</a>
     </li>
 
     <li class="nav-item px-lg-4 {% if 'oferta-educativa' in request.path %}active{% endif %}">

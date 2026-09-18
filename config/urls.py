@@ -26,6 +26,7 @@ urlpatterns = [
     path('oferta-educativa/', include('carreras.urls')),
     path('admision/', include('admision.urls')),
     path('avisos/', include('avisos.urls')),
+    path('maestros/', include('maestros.urls')),
     path('', include('core.urls')),
     
 ]

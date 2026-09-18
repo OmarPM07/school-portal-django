@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'avisos.apps.AvisosConfig',
     'core.apps.CoreConfig',
     'carreras.apps.CarrerasConfig',
+    'maestros.apps.MaestrosConfig',
 ]
 
 MIDDLEWARE = [
