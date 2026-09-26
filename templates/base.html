@@ -56,9 +56,21 @@
             <a class="dropdown-item" href="{% url 'core:contacto' %}">Contáctanos</a>
         </div>
     </li>
-
+    
+    <!-- 
     <li class="nav-item px-lg-4 {% if 'alumnos' in request.path %}active{% endif %}">
         <a class="nav-link text-uppercase text-expanded" href="{% url 'alumnos:informacion' %}">Alumnos</a>
+    </li>
+    -->
+
+    <li class="nav-item dropdown px-lg-4">
+        <a class="nav-link dropdown-toggle text-uppercase text-expanded" href="#" id="conocenosDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Alumnos
+        </a>
+        <div class="dropdown-menu" aria-labelledby="conocenosDropdown">
+            <a class="dropdown-item" href="{% url 'alumnos:informacion' %}">Información</a>
+            <a class="dropdown-item" href="{% url 'alumnos:actividades' %}">Actividades</a>
+        </div>
     </li>
 
     <li class="nav-item px-lg-4 {% if 'maestros' in request.path %}active{% endif %}">
