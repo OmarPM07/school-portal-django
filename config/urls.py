@@ -27,8 +27,8 @@ urlpatterns = [
     path('admision/', include('admision.urls')),
     path('avisos/', include('avisos.urls')),
     path('maestros/', include('maestros.urls')),
+    path('alumnos/', include('alumnos.urls')),
     path('', include('core.urls')),
-    
 ]
 
 if settings.DEBUG:

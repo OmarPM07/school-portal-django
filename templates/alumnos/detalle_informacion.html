@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ seccion.titulo }}{% endblock title %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+        <div class="section-heading mb-4">
+            <span class="section-heading-lower">{{ seccion.titulo }}</span>
+        </div>
+
+        <div class="section-content mb-4">
+            {{ seccion.contenido|safe }}
+        </div>
+
+        {% if seccion.archivo_adjunto %}
+        <a href="{{ seccion.archivo_adjunto.url }}" target="_blank" class="btn btn-verde btn-xl mb-4">Descargar documento</a>
+        {% endif %}
+
+        <a href="{% url 'alumnos:informacion' %}" class="btn btn-primary btn-xl">← Volver a Información para Alumnos</a>
+    </div>
+</section>
+{% endblock content %}

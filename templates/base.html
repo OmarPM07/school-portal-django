@@ -58,7 +58,7 @@
     </li>
 
     <li class="nav-item px-lg-4 {% if 'alumnos' in request.path %}active{% endif %}">
-        <a class="nav-link text-uppercase text-expanded" href="#">Alumnos</a>
+        <a class="nav-link text-uppercase text-expanded" href="{% url 'alumnos:informacion' %}">Alumnos</a>
     </li>
 
     <li class="nav-item px-lg-4 {% if 'maestros' in request.path %}active{% endif %}">

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ actividad.titulo }}{% endblock title %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+        <div class="section-heading mb-4">
+            <span class="section-heading-lower">{{ actividad.titulo }}</span>
+            <span class="section-heading-under">{{ actividad.fecha|date:"d/m/Y" }}</span>
+        </div>
+
+        <img src="{{ actividad.imagen_principal.url }}" alt="{{ actividad.titulo }}" class="img-fluid rounded mb-4">
+
+        {% if actividad.descripcion %}
+        <div class="section-content mb-5">
+            {{ actividad.descripcion|safe }}
+        </div>
+        {% endif %}
+
+        {% if actividad.imagenes.all %}
+        <h4 class="mb-3">Galería</h4>
+        <div class="row">
+            {% for imagen in actividad.imagenes.all %}
+            <div class="col-md-4 mb-4">
+                <img src="{{ imagen.imagen.url }}" alt="{{ imagen.descripcion|default:actividad.titulo }}" class="img-fluid rounded">
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <a href="{% url 'alumnos:actividades' %}" class="btn btn-primary btn-xl mt-3">← Volver a Actividades</a>
+    </div>
+</section>
+{% endblock content %}

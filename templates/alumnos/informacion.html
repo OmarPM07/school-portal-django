@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Alumnos
+{% endblock title %}
+
+
+{% block content %}
+    <section class="page-section">
+        <div class="container bg-faded p-5">
+            <div class="section-heading text-center mb-5">
+                <span class="section-heading-lower">Información para Alumnos</span>
+            </div>
+
+            <div class="row">
+                {% for seccion in secciones %}
+                    <div class="col-lg-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ seccion.titulo }}</h5>
+                                <a href="{% url 'alumnos:detalle_informacion' seccion.slug %}" class="btn btn-verde btn-xl">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p class="text-center">Aún no hay información disponible.</p>
+                {% endfor %}
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="{% url 'alumnos:actividades' %}" class="btn btn-primary btn-xl">Ver galería de actividades</a>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+    
+    

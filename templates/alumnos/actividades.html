@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Actividades{% endblock title %}
+
+{% block content %}
+<section class="page-section">
+    <div class="container bg-faded p-5">
+        <div class="section-heading text-center mb-5">
+            <span class="section-heading-lower">Actividades de los Alumnos</span>
+        </div>
+
+        <div class="row">
+            {% for actividad in actividades %}
+            <div class="col-lg-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{ actividad.imagen_principal.url }}" class="card-img-top" alt="{{ actividad.titulo }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ actividad.titulo }}</h5>
+                        <p class="text-muted small">{{ actividad.fecha|date:"d/m/Y" }}</p>
+                        <p class="card-text">{{ actividad.resumen }}</p>
+                        <a href="{% url 'alumnos:detalle_actividad' actividad.slug %}" class="btn btn-verde btn-xl">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">Aún no hay actividades registradas.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock content %}
